@@ -69,14 +69,3 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
-.idea/.gitignore
-.idea/dataSources.xml
-.idea/libraries/
-.idea/misc.xml
-.idea/modules.xml
-.idea/uiDesigner.xml
-.idea/vcs.xml
-Hibernate_ThogaKade.iml
-out/production/Hibernate_ThogaKade/hibernate.cfg.xml
-out/production/Hibernate_ThogaKade/lk/ijse/hibernate/view/
-src/
