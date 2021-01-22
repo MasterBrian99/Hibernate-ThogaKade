@@ -1,0 +1,16 @@
+#main-from{
+    -fx-background-color:#1E96FC;
+}
+
+
+#top-panel{
+    -fx-background-color:  rgba(0,0,0,0.1);
+    -fx-background-radius: 15px;
+}
+
+#customer-id_combo__box{
+    -fx-font-size: 22px;
+}
+#btn-Order{
+    -fx-background-color: #072AC8;
+}

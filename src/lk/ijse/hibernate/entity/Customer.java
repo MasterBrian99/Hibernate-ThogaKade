@@ -7,9 +7,22 @@ import javax.persistence.Id;
 @Entity
 public class Customer implements SuperEntity {
     @Id
-    String id;
-    String name;
-    String address;
+    private String id;
+    private String name;
+    private String address;
+    private String salary;
+
+
+    public Customer() {
+
+    }
+
+    public Customer(String id, String name, String address, String salary) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+    }
 
     @Override
     public String toString() {
@@ -17,16 +30,8 @@ public class Customer implements SuperEntity {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
+                ", salary='" + salary + '\'' +
                 '}';
-    }
-
-    public Customer() {
-    }
-
-    public Customer(String id, String name, String address) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
     }
 
     public String getId() {
@@ -51,6 +56,14 @@ public class Customer implements SuperEntity {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
     }
 
 

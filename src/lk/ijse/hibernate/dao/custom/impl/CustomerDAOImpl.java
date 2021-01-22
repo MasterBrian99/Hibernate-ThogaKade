@@ -10,9 +10,10 @@ import org.hibernate.query.NativeQuery;
 import java.util.List;
 
 public class CustomerDAOImpl implements CustomerDAO {
+    Session session = FactoryConfiguration.getInstance().getSession();
+
     @Override
     public boolean add(Customer entity) throws Exception {
-        Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
             session.save(entity);
 
@@ -34,6 +35,9 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public Customer find(String s) throws Exception {
+
+        Transaction transaction = session.beginTransaction();
+
         return null;
     }
 

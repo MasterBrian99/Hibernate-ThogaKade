@@ -1,17 +1,30 @@
 package lk.ijse.hibernate.dto;
 
 public class CustomerDTO {
-    String id;
-    String name;
-    String address;
+    private String id;
+    private String name;
+    private String address;
+    private String salary;
 
-    public CustomerDTO(String id, String name, String address) {
+
+    public CustomerDTO() {
+    }
+
+    @Override
+    public String toString() {
+        return "CustomerDTO{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", salary='" + salary + '\'' +
+                '}';
+    }
+
+    public CustomerDTO(String id, String name, String address, String salary) {
         this.id = id;
         this.name = name;
         this.address = address;
-    }
-
-    public CustomerDTO() {
+        this.salary = salary;
     }
 
     public String getId() {
@@ -38,12 +51,11 @@ public class CustomerDTO {
         this.address = address;
     }
 
-    @Override
-    public String toString() {
-        return "CustomerDTO{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
     }
 }

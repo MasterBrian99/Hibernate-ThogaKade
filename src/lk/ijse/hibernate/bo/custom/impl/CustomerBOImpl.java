@@ -13,7 +13,7 @@ public class CustomerBOImpl  implements CustomerBO {
 
     @Override
     public boolean add(CustomerDTO customerDTO) throws Exception {
-       return customerDAO.add(new Customer(customerDTO.getId(),customerDTO.getName(),customerDTO.getAddress()));
+       return customerDAO.add(new Customer(customerDTO.getId(),customerDTO.getName(),customerDTO.getAddress(),""));
     }
 
     @Override

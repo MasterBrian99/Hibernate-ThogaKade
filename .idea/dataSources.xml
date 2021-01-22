@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@localhost" uuid="6202720c-e60e-4c3e-bb02-be04c59345d9">
+    <data-source source="LOCAL" name="ThogaKade@localhost" uuid="82a9b64b-8d49-4e8c-830d-1143aa63ace3">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://localhost:3306</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="d233f340-c23a-4bf7-8d85-ed5949907233">
-      <driver-ref>mariadb</driver-ref>
-      <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>Hibernate
-
-/home/brian/IdeaProjects/Hibernate_ThogaKade/src/hibernate.cfg.xml</remarks>
-      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://localhost:3306/hibernate_demo</jdbc-url>
+      <jdbc-url>jdbc:mariadb://localhost:3306/ThogaKade</jdbc-url>
     </data-source>
   </component>
 </project>

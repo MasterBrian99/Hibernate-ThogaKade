@@ -28,7 +28,7 @@ public class CustomerFormController {
         String text = txtID.getText();
         String text1 = txtName.getText();
         String text2 = txtAddress.getText();
-        CustomerDTO customerDTO = new CustomerDTO(text, text1, text2);
+        CustomerDTO customerDTO = new CustomerDTO(text, text1, text2,"");
         try {
             boolean add = customerBO.add(customerDTO);
                 if (add){
