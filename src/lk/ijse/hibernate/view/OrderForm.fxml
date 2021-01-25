@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="root" prefHeight="838.0" prefWidth="1321.0" stylesheets="@../assects/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.controller.OrderFormController">
+<AnchorPane id="root" prefHeight="928.0" prefWidth="1401.0" stylesheets="@../assects/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.controller.OrderFormController">
    <children>
       <AnchorPane id="info-root" layoutX="14.0" layoutY="14.0" prefHeight="137.0" prefWidth="379.0">
          <children>
@@ -39,11 +43,105 @@
             <Font name="Arimo Bold for Powerline" size="48.0" />
          </font>
       </Label>
-      <AnchorPane id="info-root" layoutX="13.0" layoutY="207.0" prefHeight="288.0" prefWidth="1296.0">
+      <AnchorPane id="info-root" layoutX="14.0" layoutY="312.0" prefHeight="444.0" prefWidth="502.0">
          <children>
-            <JFXComboBox id="items-combo-box" fx:id="cmbItemName" layoutX="20.0" layoutY="30.0" prefHeight="46.0" prefWidth="500.0" promptText="Item Name" />
+            <JFXComboBox id="items-combo-box" fx:id="cmbItemCode" layoutX="20.0" layoutY="30.0" onAction="#cmbItemCodeOnAction" prefHeight="46.0" prefWidth="178.0" promptText="Item Code" />
+            <Label layoutX="20.0" layoutY="103.0" prefHeight="32.0" prefWidth="234.0" text="Item Description">
+               <font>
+                  <Font name="Arimo Bold for Powerline" size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblItemDescription" layoutX="20.0" layoutY="144.0" prefHeight="32.0" prefWidth="465.0" text="des">
+               <font>
+                  <Font name="Arimo Bold for Powerline" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="22.0" layoutY="185.0" prefHeight="32.0" prefWidth="234.0" text="Unit Price">
+               <font>
+                  <Font name="Arimo Bold for Powerline" size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblItemUnitPrice" layoutX="22.0" layoutY="226.0" prefHeight="32.0" prefWidth="465.0" text="price">
+               <font>
+                  <Font name="Arimo Bold for Powerline" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="267.0" prefHeight="32.0" prefWidth="234.0" text="QTY">
+               <font>
+                  <Font name="Arimo Bold for Powerline" size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblItemQty" layoutX="20.0" layoutY="308.0" prefHeight="32.0" prefWidth="465.0" text="qty">
+               <font>
+                  <Font name="Arimo Bold for Powerline" size="19.0" />
+               </font>
+            </Label>
+            <JFXButton id="btn-add-item" buttonType="RAISED" layoutX="302.0" layoutY="352.0" onAction="#btnAddItemOnAction" prefHeight="46.0" prefWidth="153.0" ripplerFill="#40beff" text="Add Item">
+               <font>
+                  <Font name="Arimo for Powerline" size="26.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXTextField fx:id="txtItemSetQty" layoutX="93.0" layoutY="351.0" prefHeight="49.0" prefWidth="160.0">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="38.0" layoutY="375.0" prefHeight="32.0" prefWidth="41.0" text="qty :">
+               <font>
+                  <Font name="Arimo Bold for Powerline" size="19.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <Button layoutX="815.0" layoutY="615.0" mnemonicParsing="false" onAction="#getInfoOnAction" text="asd" />
+      <AnchorPane id="info-root" layoutX="529.0" layoutY="165.0" prefHeight="646.0" prefWidth="858.0">
+         <children>
+            <TableView fx:id="tblOrderItems" layoutX="20.0" layoutY="41.0" prefHeight="499.0" prefWidth="825.0">
+              <columns>
+                <TableColumn fx:id="clmItemCode" prefWidth="118.0" text="Item Code" />
+                <TableColumn fx:id="clmItemDescription" prefWidth="448.0" text="Description" />
+                  <TableColumn fx:id="clmItemQty" prefWidth="116.0" text="Qty" />
+                  <TableColumn fx:id="clmItemTotal" prefWidth="142.0" text="Total" />
+              </columns>
+            </TableView>
+            <JFXButton id="btn-add-item" buttonType="RAISED" layoutX="610.0" layoutY="560.0" onAction="#btnAddItemOnAction" prefHeight="48.0" prefWidth="234.0" ripplerFill="#ff6e42" style="-fx-background-color: #ff6e42;" text="Remove Item" textFill="#fffefe">
+               <font>
+                  <Font name="Arimo for Powerline" size="26.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXTextField fx:id="txtOrderTotalPrice" editable="false" layoutX="198.0" layoutY="560.0" prefHeight="49.0" prefWidth="160.0">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="20.0" layoutY="568.0" prefHeight="32.0" prefWidth="178.0" text="Total Price :">
+               <font>
+                  <Font name="Arimo Bold for Powerline" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="info-root" layoutX="14.0" layoutY="165.0" prefHeight="137.0" prefWidth="502.0">
+         <children>
+            <JFXComboBox id="items-combo-box" fx:id="cmbCustomerId" layoutX="14.0" layoutY="14.0" onAction="#cmbCustomerIdOnAction" prefHeight="46.0" prefWidth="178.0" promptText="Customer ID" />
+            <Label fx:id="lblCustomerName" layoutX="14.0" layoutY="80.0" prefHeight="32.0" prefWidth="371.0" text="Customer Name">
+               <font>
+                  <Font name="Arimo Bold for Powerline" size="28.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <JFXButton id="btn-add-item" buttonType="RAISED" layoutX="1082.0" layoutY="840.0" onAction="#btnAddItemOnAction" prefHeight="48.0" prefWidth="287.0" ripplerFill="#40beff" text="Place Order">
+         <font>
+            <Font name="Arimo for Powerline" size="26.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>

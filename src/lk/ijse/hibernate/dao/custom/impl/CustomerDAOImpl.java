@@ -1,7 +1,9 @@
 package lk.ijse.hibernate.dao.custom.impl;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import lk.ijse.hibernate.dao.custom.CustomerDAO;
 import lk.ijse.hibernate.entity.Customer;
+import lk.ijse.hibernate.entity.Item;
 import lk.ijse.hibernate.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -12,10 +14,11 @@ import java.util.List;
 
 public class CustomerDAOImpl implements CustomerDAO {
     Session session = FactoryConfiguration.getInstance().getSession();
+
     @Override
     public boolean add(Customer entity) throws Exception {
         Transaction transaction = session.beginTransaction();
-            session.save(entity);
+        session.save(entity);
 
         transaction.commit();
         session.close();
@@ -35,18 +38,28 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public Customer find(String s) throws Exception {
-        Transaction transaction = session.beginTransaction();
-        Query query = session.createQuery("from Customer where id = ?1");
-        query.setParameter(1,s);
+        Session se = FactoryConfiguration.getInstance().getSession();
+
+        Query query = se.createQuery("from Customer where id = ?1");
+        query.setParameter(1, s);
         Customer customer = (Customer) query.uniqueResult();
-        transaction.commit();
-        session.close();
+        se.close();
         return customer;
     }
 
     @Override
     public List<Customer> findAll() throws Exception {
-        return null;
+
+        Query from_customer = session.createQuery("from Customer ");
+
+        return (List<Customer>) from_customer.list();
+    }
+
+    @Override
+    public long getCount() throws Exception {
+        Query query = session.createQuery("select count(*) from Customer");
+
+        return (Long) query.uniqueResult();
     }
 
     @Override
@@ -61,13 +74,5 @@ public class CustomerDAOImpl implements CustomerDAO {
 
         return null;
     }
-
-    @Override
-    public long getAll() throws Exception {
-        Query query = session.createQuery("select count(*) from Customer");
-
-        return (Long) query.uniqueResult();
-    }
-
 
 }

@@ -11,8 +11,41 @@
     -fx-font-size: 20px;
 }
 
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(to bottom, #000, #fff);
+    -fx-padding: 0 0 5px 0;
+    -fx-font-size: 18px;
+}
+.table-cell{
+    -fx-font-size: 15px;
 
+}
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 10px 0 10px 5px;
+}
+.table-row-cell:hover {
+    -fx-background-color: #93f9b911;
+    -fx-text-background-color: red;
+}
+.table-row-cell:odd{
+    -fx-background-color: #93f9b901;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:even{
+    -fx-background-color: #1dbbdd01;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:selected{
+    -fx-background-color: #1dbbdd;
 
+}
+
+#btn-add-item{
+    -fx-background-color: #54DDFF;
+}
 /*.combo-box-popup .list-view {*/
 /*    -fx-font-size : 15pt;*/
 /*}*/

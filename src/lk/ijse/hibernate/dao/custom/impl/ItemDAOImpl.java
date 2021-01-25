@@ -11,7 +11,6 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 public class ItemDAOImpl  implements ItemDAO {
-    Session session = FactoryConfiguration.getInstance().getSession();
 
     @Override
     public boolean add(Item entity) throws Exception {
@@ -30,29 +29,37 @@ public class ItemDAOImpl  implements ItemDAO {
 
     @Override
     public Item find(String s) throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+
         Transaction transaction = session.beginTransaction();
       Query query = session.createQuery("from Item where id = ?1");
-      query.setParameter(1,"POO1");
+      query.setParameter(1,s);
       Item item = (Item) query.uniqueResult();
       System.out.println(item);
         transaction.commit();
         session.close();
-        return null;
+        return item;
     }
 
     @Override
     public List<Item> findAll() throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+
         Query from_item_ = session.createQuery("from Item ");
 
         return (List<Item>) from_item_.list();
     }
 
     @Override
-    public long getAll() throws Exception {
+    public long getCount() throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+
         Query query = session.createQuery("select count(*) from Item");
 
         return (Long) query.uniqueResult();
 
 
     }
+
+
 }

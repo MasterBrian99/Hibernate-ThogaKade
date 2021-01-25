@@ -1,5 +1,8 @@
 package lk.ijse.hibernate.dto;
 
+import javax.persistence.OneToMany;
+import java.util.List;
+
 public class CustomerDTO {
     private String id;
     private String name;

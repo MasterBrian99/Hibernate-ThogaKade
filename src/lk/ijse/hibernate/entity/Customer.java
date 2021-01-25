@@ -1,8 +1,9 @@
 package lk.ijse.hibernate.entity;
 
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Customer implements SuperEntity {
@@ -11,10 +12,15 @@ public class Customer implements SuperEntity {
     private String name;
     private String address;
     private String salary;
+    @OneToMany(mappedBy = "customer")
+    private List<Orders> orders;
 
-
-    public Customer() {
-
+    public Customer(String id, String name, String address, String salary, List<Orders> orders) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+        this.orders = orders;
     }
 
     public Customer(String id, String name, String address, String salary) {
@@ -31,7 +37,11 @@ public class Customer implements SuperEntity {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", salary='" + salary + '\'' +
+                ", orders=" + orders +
                 '}';
+    }
+
+    public Customer() {
     }
 
     public String getId() {
@@ -66,6 +76,11 @@ public class Customer implements SuperEntity {
         this.salary = salary;
     }
 
+    public List<Orders> getOrders() {
+        return orders;
+    }
 
-
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
+    }
 }

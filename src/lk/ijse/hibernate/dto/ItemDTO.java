@@ -4,27 +4,35 @@ public class ItemDTO {
 
     private String code;
     private String description;
-    private int unitPrice;
+    private double unitPrice;
     private int qtyOnHand;
 
     public ItemDTO() {
     }
 
-    public ItemDTO(String code, String description, int unitPrice, int qtyOnHand) {
+    @Override
+    public String toString() {
+        return "ItemDTO{" +
+                "code='" + code + '\'' +
+                ", description='" + description + '\'' +
+                ", unitPrice=" + unitPrice +
+                ", qtyOnHand=" + qtyOnHand +
+                '}';
+    }
+
+    public ItemDTO(String code, String description, double unitPrice, int qtyOnHand) {
         this.code = code;
         this.description = description;
         this.unitPrice = unitPrice;
         this.qtyOnHand = qtyOnHand;
     }
 
-    @Override
-    public String toString() {
-        return "Item{" +
-                "code='" + code + '\'' +
-                ", description='" + description + '\'' +
-                ", unitPrice=" + unitPrice +
-                ", qtyOnHand=" + qtyOnHand +
-                '}';
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
     public String getCode() {
@@ -43,13 +51,6 @@ public class ItemDTO {
         this.description = description;
     }
 
-    public int getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(int unitPrice) {
-        this.unitPrice = unitPrice;
-    }
 
     public int getQtyOnHand() {
         return qtyOnHand;

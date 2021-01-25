@@ -4,9 +4,7 @@ import lk.ijse.hibernate.bo.custom.ItemBO;
 import lk.ijse.hibernate.dao.DAOFactory;
 import lk.ijse.hibernate.dao.DAOTypes;
 import lk.ijse.hibernate.dao.custom.impl.ItemDAOImpl;
-import lk.ijse.hibernate.dto.CustomerDTO;
 import lk.ijse.hibernate.dto.ItemDTO;
-import lk.ijse.hibernate.entity.Customer;
 import lk.ijse.hibernate.entity.Item;
 
 import java.util.ArrayList;
@@ -17,15 +15,15 @@ public class ItemBOImpl implements ItemBO {
     @Override
     public ItemDTO find(String s) throws Exception {
 
-            Item item=itemDAO.find(s);
-            ItemDTO itemDTO=new ItemDTO(item.getCode(),item.getDescription(),item.getUnitPrice(),item.getQtyOnHand());
+      Item item=itemDAO.find(s);
+     ItemDTO itemDTO=new ItemDTO(item.getCode(),item.getDescription(),item.getUnitPrice(),item.getQtyOnHand());
 
         return itemDTO;
     }
 
     @Override
     public long getCount() throws Exception {
-        return itemDAO.getAll();
+        return itemDAO.getCount();
 
     }
 
