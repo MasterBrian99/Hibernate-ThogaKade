@@ -40,5 +40,11 @@ public class ItemBOImpl implements ItemBO {
             return itemDTOS;
     }
 
+    @Override
+    public boolean add(ItemDTO itemDTO) throws Exception {
+
+        return false;
+    }
+
 
 }

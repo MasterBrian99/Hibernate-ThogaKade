@@ -2,13 +2,18 @@ package lk.ijse.hibernate.dao.custom.impl;
 
 import lk.ijse.hibernate.dao.custom.OrdersDAO;
 import lk.ijse.hibernate.entity.Orders;
+import lk.ijse.hibernate.util.FactoryConfiguration;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import java.util.List;
 
 public class OrdersDAOImpl implements OrdersDAO {
     @Override
     public boolean add(Orders entity) throws Exception {
-        return false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        return session.save(entity)!=null;
+
     }
 
     @Override

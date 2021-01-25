@@ -1,13 +1,13 @@
 package lk.ijse.hibernate.bo.custom.impl;
 
 import lk.ijse.hibernate.bo.custom.OrderDetailBO;
-import lk.ijse.hibernate.entity.OrderDetail;
+import lk.ijse.hibernate.dto.OrderDetailDTO;
 
 import java.util.List;
 
 public class OrderDetailBOImpl implements OrderDetailBO {
     @Override
-    public OrderDetail find(String s) throws Exception {
+    public OrderDetailDTO find(String s) throws Exception {
 
         return null;
     }
@@ -19,8 +19,13 @@ public class OrderDetailBOImpl implements OrderDetailBO {
     }
 
     @Override
-    public List<OrderDetail> findAll() throws Exception {
+    public List<OrderDetailDTO> findAll() throws Exception {
 
         return null;
+    }
+
+    @Override
+    public boolean add(OrderDetailDTO orderDetailDTO) throws Exception {
+        return false;
     }
 }

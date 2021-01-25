@@ -1,24 +1,38 @@
 package lk.ijse.hibernate.dto;
 
 import lk.ijse.hibernate.entity.Customer;
+import lk.ijse.hibernate.entity.OrderDetail;
 
 import javax.persistence.ManyToOne;
+import java.util.List;
 
 public class OrdersDTO {
     private String id;
     private String date;
+    private Customer customer;
+    private List<OrderDetail> orderDetail;
 
-    @Override
-    public String toString() {
-        return "OrdersDTO{" +
-                "id='" + id + '\'' +
-                ", date='" + date + '\'' +
-                '}';
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public OrdersDTO(String id, String date) {
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public List<OrderDetail> getOrderDetail() {
+        return orderDetail;
+    }
+
+    public void setOrderDetail(List<OrderDetail> orderDetail) {
+        this.orderDetail = orderDetail;
+    }
+
+    public OrdersDTO(String id, String date, Customer customer, List<OrderDetail> orderDetail) {
         this.id = id;
         this.date = date;
+        this.customer = customer;
+        this.orderDetail = orderDetail;
     }
 
     public OrdersDTO() {

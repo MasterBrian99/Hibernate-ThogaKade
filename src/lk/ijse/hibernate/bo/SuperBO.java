@@ -8,4 +8,6 @@ public interface SuperBO<T,t>{
     public T find(String s) throws Exception;
     public long getCount() throws Exception;
     public List<T> findAll() throws Exception;
+    public boolean add(T t) throws Exception;
+
 }
