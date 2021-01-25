@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Orders {
+public class Orders implements SuperEntity {
     @Id
     private String id;
     private String date;

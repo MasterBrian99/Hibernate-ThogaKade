@@ -2,6 +2,7 @@ package lk.ijse.hibernate.bo;
 
 import lk.ijse.hibernate.bo.custom.impl.CustomerBOImpl;
 import lk.ijse.hibernate.bo.custom.impl.ItemBOImpl;
+import lk.ijse.hibernate.bo.custom.impl.OrderDetailBOImpl;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -20,6 +21,9 @@ public class BOFactory {
                     return (T) new CustomerBOImpl();
                 case ITEM:
                     return (T) new ItemBOImpl();
+                case ORDER:
+                    return (T) new OrderDetailBOImpl();
+
                 default:
                     return null;
             }

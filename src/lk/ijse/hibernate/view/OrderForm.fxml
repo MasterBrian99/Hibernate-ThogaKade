@@ -135,7 +135,7 @@
                </font>
             </Label>
          </children></AnchorPane>
-      <JFXButton id="btn-add-item" buttonType="RAISED" layoutX="1082.0" layoutY="840.0" onAction="#btnAddItemOnAction" prefHeight="48.0" prefWidth="287.0" ripplerFill="#40beff" text="Place Order">
+      <JFXButton id="btn-add-item" buttonType="RAISED" layoutX="1082.0" layoutY="840.0" onAction="#placeOrderOnAction" prefHeight="48.0" prefWidth="287.0" ripplerFill="#40beff" text="Place Order">
          <font>
             <Font name="Arimo for Powerline" size="26.0" />
          </font>

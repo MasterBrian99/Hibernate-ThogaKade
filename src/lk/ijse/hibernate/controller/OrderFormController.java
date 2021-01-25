@@ -159,7 +159,6 @@ public class OrderFormController {
         double itemTotalPrice = itemSetQty * Double.parseDouble(lblItemUnitPrice.getText());
 
         ItemDTO itemDTO = new ItemDTO(itemCode, itemDes, itemTotalPrice, itemSetQty);
-        System.out.println(itemDTO);
 
         int row = isAlreadyExist(itemCode);
 
@@ -195,6 +194,12 @@ public class OrderFormController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+    }
+
+    public void placeOrderOnAction(ActionEvent actionEvent) {
+
 
 
     }
