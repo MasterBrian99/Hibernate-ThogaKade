@@ -10,7 +10,7 @@ public interface SuperDAO <Entity extends SuperEntity,ID extends Serializable> {
     public boolean add(Entity entity) throws Exception;
     public boolean delete(ID id) throws Exception;
     public boolean update (Entity entity) throws Exception;
-    public Customer find(ID id) throws Exception;
+    public Entity find(ID id) throws Exception;
     public List<Entity> findAll() throws Exception;
 
 }

@@ -6,12 +6,12 @@ import lk.ijse.hibernate.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
 public class CustomerDAOImpl implements CustomerDAO {
     Session session = FactoryConfiguration.getInstance().getSession();
-
     @Override
     public boolean add(Customer entity) throws Exception {
         Transaction transaction = session.beginTransaction();
@@ -35,10 +35,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public Customer find(String s) throws Exception {
-
         Transaction transaction = session.beginTransaction();
-
-        return null;
+        Query query = session.createQuery("from Customer where id = ?1");
+        query.setParameter(1,s);
+        Customer customer = (Customer) query.uniqueResult();
+        transaction.commit();
+        session.close();
+        return customer;
     }
 
     @Override
@@ -48,14 +51,23 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public String getID() throws Exception {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        NativeQuery sqlQuery = session.createSQLQuery("SELECT id from Customer order by id desc limit 1");
-        String id = (String) sqlQuery.uniqueResult();
-        transaction.commit();
+//        Session session = FactoryConfiguration.getInstance().getSession();
+//        Transaction transaction = session.beginTransaction();
+//        NativeQuery sqlQuery = session.createSQLQuery("SELECT id from Customer order by id desc limit 1");
+//        String id = (String) sqlQuery.uniqueResult();
+//        transaction.commit();
+//
+//        session.close();
 
-        session.close();
-
-        return id;
+        return null;
     }
+
+    @Override
+    public long getAll() throws Exception {
+        Query query = session.createQuery("select count(*) from Customer");
+
+        return (Long) query.uniqueResult();
+    }
+
+
 }

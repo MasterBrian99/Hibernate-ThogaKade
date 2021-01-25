@@ -7,7 +7,7 @@
     <property name="connection.url"/>
     <property name="connection.driver_class"/>
     <property name="hibernate.connection.driver_class">org.mariadb.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mariadb://localhost:3306/hibernate_demo</property>
+    <property name="hibernate.connection.url">jdbc:mariadb://localhost:3306/ThogaKade</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">12345678</property>
     <property name="hibernate.dialect">org.hibernate.dialect.MariaDBDialect</property>

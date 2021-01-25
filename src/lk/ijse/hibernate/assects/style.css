@@ -1,16 +1,23 @@
-#main-from{
-    -fx-background-color:#1E96FC;
+#root{
+    -fx-background-image: url("./images/background.jpg");
+}
+#info-root{
+    -fx-background-color: #fff;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5, 0, 0, 0);
+    -fx-opacity: .8;
+}
+#items-combo-box{
+    -fx-font-size: 20px;
 }
 
 
-#top-panel{
-    -fx-background-color:  rgba(0,0,0,0.1);
-    -fx-background-radius: 15px;
-}
 
-#customer-id_combo__box{
-    -fx-font-size: 22px;
-}
-#btn-Order{
-    -fx-background-color: #072AC8;
-}
+/*.combo-box-popup .list-view {*/
+/*    -fx-font-size : 15pt;*/
+/*}*/
+
+/*!*added this in an edit*!*/
+/*.combo-box-popup .list-view .list-cell {*/
+/*    -fx-padding: -1 -1 -1 -1;*/
+/*}*/

@@ -8,6 +8,8 @@ import lk.ijse.hibernate.dao.custom.impl.CustomerDAOImpl;
 import lk.ijse.hibernate.dto.CustomerDTO;
 import lk.ijse.hibernate.entity.Customer;
 
+import java.util.List;
+
 public class CustomerBOImpl  implements CustomerBO {
     CustomerDAOImpl customerDAO= DAOFactory.getInstance().getDAO(DAOTypes.CUSTOMER);
 
@@ -30,6 +32,28 @@ public class CustomerBOImpl  implements CustomerBO {
 
 
     }
+
+    @Override
+    public CustomerDTO find(String s) throws Exception {
+        Customer customer = customerDAO.find(s);
+        CustomerDTO customerDTO=new CustomerDTO(customer.getId(),customer.getName(),customer.getAddress(),customer.getSalary());
+
+            return customerDTO;
+
+    }
+
+    @Override
+    public long getCount() throws Exception {
+
+        return customerDAO.getAll();
+    }
+
+    @Override
+    public List<CustomerDTO> findAll() throws Exception {
+        return null;
+    }
+
+
 }
 
 

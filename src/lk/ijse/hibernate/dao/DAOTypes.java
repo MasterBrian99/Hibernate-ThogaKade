@@ -2,5 +2,5 @@ package lk.ijse.hibernate.dao;
 
 public enum DAOTypes {
 
-    CUSTOMER
+    CUSTOMER,ITEM
 }
