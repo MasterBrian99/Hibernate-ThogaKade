@@ -12,36 +12,9 @@ public class Customer implements SuperEntity {
     private String name;
     private String address;
     private String salary;
-    @OneToMany(mappedBy = "customer")
-    private List<Orders> orders;
 
-    public Customer(String id, String name, String address, String salary, List<Orders> orders) {
+    public Customer(String id) {
         this.id = id;
-        this.name = name;
-        this.address = address;
-        this.salary = salary;
-        this.orders = orders;
-    }
-
-    public Customer(String id, String name, String address, String salary) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.salary = salary;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", salary='" + salary + '\'' +
-                ", orders=" + orders +
-                '}';
-    }
-
-    public Customer() {
     }
 
     public String getId() {
@@ -76,11 +49,23 @@ public class Customer implements SuperEntity {
         this.salary = salary;
     }
 
-    public List<Orders> getOrders() {
-        return orders;
+    public Customer() {
     }
 
-    public void setOrders(List<Orders> orders) {
-        this.orders = orders;
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", salary='" + salary + '\'' +
+                '}';
+    }
+
+    public Customer(String id, String name, String address, String salary) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
     }
 }

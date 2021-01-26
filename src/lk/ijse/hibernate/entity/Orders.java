@@ -2,24 +2,16 @@ package lk.ijse.hibernate.entity;
 
 import lk.ijse.hibernate.dto.CustomerDTO;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Orders implements SuperEntity {
     @Id
     private String id;
     private String date;
-    @ManyToOne
+    @OneToOne
     private Customer customer;
 
-
-    public Orders(String id, String date, Customer customer) {
-        this.id = id;
-        this.date = date;
-        this.customer = customer;
-    }
 
     public Orders() {
     }
@@ -31,14 +23,6 @@ public class Orders implements SuperEntity {
                 ", date='" + date + '\'' +
                 ", customer=" + customer +
                 '}';
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
     }
 
     public String getId() {
@@ -57,5 +41,17 @@ public class Orders implements SuperEntity {
         this.date = date;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
 
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Orders(String id, String date, Customer customer) {
+        this.id = id;
+        this.date = date;
+        this.customer = customer;
+    }
 }

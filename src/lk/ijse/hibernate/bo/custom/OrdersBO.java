@@ -5,5 +5,4 @@ import lk.ijse.hibernate.dto.OrdersDTO;
 import lk.ijse.hibernate.entity.Customer;
 
 public interface OrdersBO extends SuperBO<OrdersDTO,String > {
-    public boolean addOrder(OrdersDTO ordersDTO, Customer customer) throws Exception;
 }

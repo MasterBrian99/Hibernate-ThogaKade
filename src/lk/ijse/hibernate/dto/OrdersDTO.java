@@ -9,35 +9,31 @@ import java.util.List;
 public class OrdersDTO {
     private String id;
     private String date;
-    private Customer customer;
-    private List<OrderDetail> orderDetail;
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public List<OrderDetail> getOrderDetail() {
-        return orderDetail;
-    }
-
-    public void setOrderDetail(List<OrderDetail> orderDetail) {
-        this.orderDetail = orderDetail;
-    }
-
-    public OrdersDTO(String id, String date, Customer customer, List<OrderDetail> orderDetail) {
-        this.id = id;
-        this.date = date;
-        this.customer = customer;
-        this.orderDetail = orderDetail;
-    }
+    private CustomerDTO customer;
+    private List<OrderDetailDTO> orderDetail;
+    private List<ItemDTO> itemDTOS;
 
     public OrdersDTO() {
     }
 
+    public OrdersDTO(String id, String date, CustomerDTO customer, List<OrderDetailDTO> orderDetail, List<ItemDTO> itemDTOS) {
+        this.id = id;
+        this.date = date;
+        this.customer = customer;
+        this.orderDetail = orderDetail;
+        this.itemDTOS = itemDTOS;
+    }
+
+    @Override
+    public String toString() {
+        return "OrdersDTO{" +
+                "id='" + id + '\'' +
+                ", date='" + date + '\'' +
+                ", customer=" + customer +
+                ", orderDetail=" + orderDetail +
+                ", itemDTOS=" + itemDTOS +
+                '}';
+    }
 
     public String getId() {
         return id;
@@ -55,5 +51,27 @@ public class OrdersDTO {
         this.date = date;
     }
 
+    public CustomerDTO getCustomer() {
+        return customer;
+    }
 
+    public void setCustomer(CustomerDTO customer) {
+        this.customer = customer;
+    }
+
+    public List<OrderDetailDTO> getOrderDetail() {
+        return orderDetail;
+    }
+
+    public void setOrderDetail(List<OrderDetailDTO> orderDetail) {
+        this.orderDetail = orderDetail;
+    }
+
+    public List<ItemDTO> getItemDTOS() {
+        return itemDTOS;
+    }
+
+    public void setItemDTOS(List<ItemDTO> itemDTOS) {
+        this.itemDTOS = itemDTOS;
+    }
 }

@@ -6,14 +6,18 @@ import lk.ijse.hibernate.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class OrdersDAOImpl implements OrdersDAO {
     @Override
     public boolean add(Orders entity) throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
-        return session.save(entity)!=null;
-
+        session.getTransaction().begin();
+        session.save(entity);
+        session.getTransaction().commit();
+        session.close();
+        return true;
     }
 
     @Override

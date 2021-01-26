@@ -9,6 +9,9 @@ public class CustomerDTO {
     private String address;
     private String salary;
 
+    public CustomerDTO(String id) {
+        this.id = id;
+    }
 
     public CustomerDTO() {
     }

@@ -143,5 +143,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <AnchorPane id="info-root" layoutX="1008.0" layoutY="14.0" prefHeight="137.0" prefWidth="379.0">
+         <children>
+            <Label fx:id="lblLocalDate" alignment="TOP_RIGHT" layoutX="131.0" layoutY="14.0" prefHeight="27.0" prefWidth="234.0" text="Date">
+               <font>
+                  <Font name="Arimo Bold for Powerline" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -3,7 +3,7 @@ package lk.ijse.hibernate.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity(name = "Item")
+@Entity
 public class Item implements SuperEntity{
     @Id
     private String code;

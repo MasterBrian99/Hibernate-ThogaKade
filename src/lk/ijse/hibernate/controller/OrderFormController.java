@@ -14,9 +14,15 @@ import lk.ijse.hibernate.bo.BOFactory;
 import lk.ijse.hibernate.bo.BOTypes;
 import lk.ijse.hibernate.bo.custom.CustomerBO;
 import lk.ijse.hibernate.bo.custom.ItemBO;
+import lk.ijse.hibernate.bo.custom.OrdersBO;
 import lk.ijse.hibernate.dto.CustomerDTO;
 import lk.ijse.hibernate.dto.ItemDTO;
+import lk.ijse.hibernate.dto.OrderDetailDTO;
+import lk.ijse.hibernate.dto.OrdersDTO;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrderFormController {
@@ -25,6 +31,7 @@ public class OrderFormController {
     public JFXTextField txtOrderTotalPrice;
     public JFXComboBox cmbCustomerId;
     public Label lblCustomerName;
+    public Label lblLocalDate;
     @FXML
     private TableView<ItemDTO> tblOrderItems;
 
@@ -49,13 +56,14 @@ public class OrderFormController {
 
     CustomerBO customerBO = BOFactory.getInstance().getBO(BOTypes.CUSTOMER);
     ItemBO itemBO = BOFactory.getInstance().getBO(BOTypes.ITEM);
-
+    OrdersBO ordersBO=BOFactory.getInstance().getBO(BOTypes.ORDER);
     public void initialize() throws Exception {
         getTotalCustomers();
         getTotalItems();
         setItems();
         clearFields();
         getCustomers();
+        getDate();
     }
 
 
@@ -198,9 +206,47 @@ public class OrderFormController {
 
     }
 
+    private void getDate() {
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate localDate = LocalDate.now();
+        lblLocalDate.setText(dtf.format(localDate));
+
+    }
+
     public void placeOrderOnAction(ActionEvent actionEvent) {
+        ArrayList<OrderDetailDTO> orderDetailDTOS = new ArrayList<>();
+        ArrayList<ItemDTO> itemDTOS = new ArrayList<>();
+
+        for (int i = 0; i < tblOrderItems.getItems().size(); i++) {
+            ItemDTO itemDTO = tblOrderItems.getItems().get(i);
+            String s = (String) cmbItemCode.getValue();
+             String itemCode=itemDTO.getCode();
+             int qty=itemDTO.getQtyOnHand();
+             double price=itemDTO.getUnitPrice();
+             OrderDetailDTO orderDetailDTO=new OrderDetailDTO("O001",itemCode,qty,price);
+            orderDetailDTOS.add(orderDetailDTO);
+            itemDTOS.add(itemDTO);
 
 
+        }
+        String s = (String) cmbCustomerId.getValue();
+        CustomerDTO CustomerDTO=new CustomerDTO(s);
+        OrdersDTO ordersDTO = new OrdersDTO("O001",lblLocalDate.getText(),CustomerDTO,orderDetailDTOS,itemDTOS);
+        System.out.println(ordersDTO);
 
+        try {
+            boolean add = ordersBO.add(ordersDTO);
+                if (add){
+                    System.out.println("Done");
+                }
+                else {
+                    System.out.println("Fali");
+                }
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
     }
 }
